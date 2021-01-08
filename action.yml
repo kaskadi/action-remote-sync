@@ -1,0 +1,37 @@
+# this file will be read and parsed by the generate-docs workflow to automatically generate documentation for this action
+# you can use markdown syntax inside of the `description` fields in order to format your documentation the way you like
+
+name: 'template-action' # in docs: name of the action to use
+description: 'template repository to create GitHub Actions' # in docs: description of what the action does
+
+# regular inputs metadata for your action
+# in docs: generates a table describing each inputs
+inputs:
+  input_1:
+    description: 'This is an input'
+    required: false
+    default: 'default'
+    # custom field used for docs generation
+    # value: '' # in docs: will be used as placeholder in the action configuration example for the value of the related input
+
+# regular outputs metadata for your action
+# in docs: generates a table describing each outputs
+outputs:
+  output_1:
+    description: 'This is an output'
+
+# custom field used by the documentation generation workflow.
+# This mimics the inputs field
+# in docs: generates a table describing each environment variables
+env:
+  env_1:
+    description: 'This is an environment variable'
+    required: true
+    # value: '' # In docs: will be used as placeholder in the action configuration example for the value of the related environment variable
+
+# regular metadata for the action runner
+runs:
+  using: 'node12'
+  pre: 'src/pre.js'
+  main: 'src/main.js'
+  post: 'src/post.js'
