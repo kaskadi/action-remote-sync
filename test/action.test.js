@@ -6,7 +6,7 @@ chai.should()
 
 // *************
 // Write your tests here
-describe('template-action', function () {
+describe('action-remote-sync', function () {
   // ******* DO NOT REMOVE THIS TEST!
   require('./pre/tests.js')
   // *******

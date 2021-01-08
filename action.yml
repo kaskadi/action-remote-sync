@@ -1,7 +1,7 @@
 # this file will be read and parsed by the generate-docs workflow to automatically generate documentation for this action
 # you can use markdown syntax inside of the `description` fields in order to format your documentation the way you like
 
-name: 'template-action' # in docs: name of the action to use
+name: 'action-remote-sync' # in docs: name of the action to use
 description: 'template repository to create GitHub Actions' # in docs: description of what the action does
 
 # regular inputs metadata for your action
