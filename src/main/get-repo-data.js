@@ -10,18 +10,16 @@ module.exports = () => {
 
 function getBranch () {
   const { GITHUB_BASE_REF, GITHUB_REF } = process.env
-  return GITHUB_BASE_REF ? extractLast(GITHUB_BASE_REF) : extractLast(GITHUB_REF)
+  const stripRef = ref => ref.replace('refs/heads/', '')
+  return GITHUB_BASE_REF ? stripRef(GITHUB_BASE_REF) : stripRef(GITHUB_REF)
 }
 
 function getRepo () {
   const repo = process.env.GITHUB_REPOSITORY
-  if (repo.split('/').shift() !== 'kaskadi') {
+  const [org, repoName] = repo.split('/')
+  if (org !== 'kaskadi') {
     error('Repository has to belong to the kaskadi organization in order to be synchronized.')
     process.exit(1)
   }
-  return extractLast(repo)
-}
-
-function extractLast (str) {
-  return str.split('/').pop()
+  return repoName
 }
