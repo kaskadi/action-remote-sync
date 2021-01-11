@@ -11,11 +11,11 @@ module.exports = ({ repo, branch }) => {
   }
   return fetch(`${process.env.SYNC_API_ROOT}/${repo}?branch=${branch}`, init)
     .then(async res => {
-      const { statusCode } = res
-      const body = res.json()
-      console.log(body)
-      if (statusCode !== 200) {
-        error(`Repository synchronization failed with the status code ${statusCode}...`)
+      const { status } = res
+      if (status !== 200) {
+        error(`Repository synchronization failed with the status code ${status}, printing response body below...`)
+        const body = await res.json()
+        console.log(body)
         process.exit(1)
       } else {
         console.log(`SUCCESS: successfully synchronized ${branch} of ${repo} on the remote server!`)
