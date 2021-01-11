@@ -6,10 +6,10 @@ module.exports = ({ repo, branch }) => {
   const init = {
     method: 'GET',
     headers: {
-      Authorization: `Bearer ${process.env.AUTH_TOKEN}`
+      Authorization: `Bearer ${process.env.SYNC_API_AUTH_TOKEN}`
     }
   }
-  return fetch(`http://${process.env.REMOTE_IP}/remote-sync/${repo}?branch=${branch}`, init)
+  return fetch(`${process.env.SYNC_API_ROOT}/${repo}?branch=${branch}`, init)
     .then(async res => {
       const { statusCode } = res
       const body = res.json()
