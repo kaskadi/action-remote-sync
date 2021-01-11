@@ -1,13 +1,13 @@
-# This workflow scans the action code for vulnerabilities when pushing hotfixes
-# name: analyze-code
-# on:
-#   push:
-#     branches:
-#       - 'master'
-#       - 'release/**'
-#     paths:
-#       - 'src/**'
-#       - 'package.json'
+This workflow scans the action code for vulnerabilities when pushing hotfixes
+name: analyze-code
+on:
+  push:
+    branches:
+      - 'master'
+      - 'release/**'
+    paths:
+      - 'src/**'
+      - 'package.json'
 # jobs:
 #   # scan code using CodeQL
 #   analyze:
@@ -29,3 +29,11 @@
 #       uses: github/codeql-action/autobuild@v1
 #     - name: Perform CodeQL Analysis
 #       uses: github/codeql-action/analyze@v1
+
+# this is just here to prevent errors in workflow, when the repository won't be private anymore this has to disappear and the block above has to be implemented back in
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello
+      run: echo "Hello"
