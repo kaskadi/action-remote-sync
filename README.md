@@ -61,17 +61,17 @@ jobs:
     - name: {YOUR-STEP-NAME}
       uses: kaskadi/action-remote-sync@master
       env:
-        REMOTE_IP: {REMOTE_IP-VALUE}
-        AUTH_TOKEN: {AUTH_TOKEN-VALUE}
+        SYNC_API_ROOT: {SYNC_API_ROOT-VALUE}
+        SYNC_API_AUTH_TOKEN: {SYNC_API_AUTH_TOKEN-VALUE}
 ```
 
 **Note:** everything contained in single curly brackets (`{ }`) needs to be replaced by your desired values
 
 **Environment variables:**
-|   Variable   | Required | Description                                                |
-| :----------: | :------: | :--------------------------------------------------------- |
-|  `REMOTE_IP` |  `true`  | IP of the server where the synchronization API is running. |
-| `AUTH_TOKEN` |  `true`  | Authorization token used by the API to authorize requests. |
+|        Variable       | Required | Description                                                                                                                            |
+| :-------------------: | :------: | :------------------------------------------------------------------------------------------------------------------------------------- |
+|    `SYNC_API_ROOT`    |  `true`  | Root of the server where the synchronization API is running. This should follow the following format: `http(s)://{DOMAIN}/{API_ROOT}`. |
+| `SYNC_API_AUTH_TOKEN` |  `true`  | Authorization token used by the API to authorize requests.                                                                             |
 
 <!-- automatically generated documentation will be placed in here -->
 
