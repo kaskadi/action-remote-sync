@@ -10,8 +10,7 @@ module.exports = () => {
 
 function getBranch () {
   const { GITHUB_BASE_REF, GITHUB_REF } = process.env
-  const extractBranch = str => str.split('/').pop()
-  return GITHUB_BASE_REF ? extractBranch(GITHUB_BASE_REF) : extractBranch(GITHUB_REF)
+  return GITHUB_BASE_REF ? extractLast(GITHUB_BASE_REF) : extractLast(GITHUB_REF)
 }
 
 function getRepo () {
@@ -20,5 +19,9 @@ function getRepo () {
     error('Repository has to belong to the kaskadi organization in order to be synchronized.')
     process.exit(1)
   }
-  return repo
+  return extractLast(repo)
+}
+
+function extractLast (str) {
+  return str.split('/').pop()
 }
