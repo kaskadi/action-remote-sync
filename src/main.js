@@ -1,8 +1,8 @@
 const { startGroup, endGroup } = require('@actions/core')
 
-const validateEnv = require('./validate-env.js')
-const getRepoData = require('./get-repo-data.js')
-const sync = require('./sync.js')
+const validateEnv = require('./main/validate-env.js')
+const getRepoData = require('./main/get-repo-data.js')
+const sync = require('./main/sync.js')
 
 async function main () {
   startGroup('Environment variable validation')

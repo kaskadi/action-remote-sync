@@ -12,5 +12,5 @@ env:
 runs:
   using: 'node12'
   pre: 'src/pre.js'
-  main: 'src/main/main.js'
+  main: 'src/main.js'
   post: 'src/post.js'
