@@ -30,12 +30,12 @@ const envVarMeta = {
 
 module.exports = () => {
   for (const envVar in envVarMeta) {
-    console.log('INFO: checking environment variables existence...')
+    console.log(`INFO: checking ${envVar} environment variable existence...`)
     checkVar(envVar)
-    console.log('SUCCESS: all required environment variables seem to exist!')
-    console.log('INFO: validating environment variables...')
+    console.log(`SUCCESS: ${envVar} seems to exist!`)
+    console.log(`INFO: validating ${envVar}...`)
     validateVar(envVar, envVarMeta[envVar])
-    console.log('SUCCESS: all required environment variable seems to be valid!')
+    console.log(`SUCCESS: ${envVar} seems to be valid!`)
   }
 }
 
