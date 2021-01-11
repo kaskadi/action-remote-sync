@@ -2,10 +2,10 @@ name: 'action-remote-sync'
 description: 'This action is automatically synchronizing the trigger branch of a repository it is implemented into with a given remote server. This server needs to offer access to a synchronization API (see [here](https://github.com/kaskadi/remote-sync-api)).'
 
 env:
-  REMOTE_IP:
-    description: 'IP of the server where the synchronization API is running.'
+  SYNC_API_ROOT:
+    description: 'Root of the server where the synchronization API is running. This should follow the following format: `http(s)://{DOMAIN}/{API_ROOT}`.'
     required: true
-  AUTH_TOKEN:
+  SYNC_API_AUTH_TOKEN:
     description: 'Authorization token used by the API to authorize requests.'
     required: true
 
