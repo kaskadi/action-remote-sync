@@ -36,5 +36,8 @@
     ],
     "report-dir": "./coverage"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "node-fetch": "^2.6.1"
+  }
 }

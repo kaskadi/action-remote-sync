@@ -1,35 +1,14 @@
-# this file will be read and parsed by the generate-docs workflow to automatically generate documentation for this action
-# you can use markdown syntax inside of the `description` fields in order to format your documentation the way you like
+name: 'action-remote-sync'
+description: 'This action is automatically synchronizing the trigger branch of a repository it is implemented into with a given remote server. This server needs to offer access to a synchronization API (see [here](https://github.com/kaskadi/remote-sync-api)).'
 
-name: 'action-remote-sync' # in docs: name of the action to use
-description: 'template repository to create GitHub Actions' # in docs: description of what the action does
-
-# regular inputs metadata for your action
-# in docs: generates a table describing each inputs
-inputs:
-  input_1:
-    description: 'This is an input'
-    required: false
-    default: 'default'
-    # custom field used for docs generation
-    # value: '' # in docs: will be used as placeholder in the action configuration example for the value of the related input
-
-# regular outputs metadata for your action
-# in docs: generates a table describing each outputs
-outputs:
-  output_1:
-    description: 'This is an output'
-
-# custom field used by the documentation generation workflow.
-# This mimics the inputs field
-# in docs: generates a table describing each environment variables
 env:
-  env_1:
-    description: 'This is an environment variable'
+  REMOTE_IP:
+    description: 'IP of the server where the synchronization API is running.'
     required: true
-    # value: '' # In docs: will be used as placeholder in the action configuration example for the value of the related environment variable
+  AUTH_TOKEN:
+    description: 'Authorization token used by the API to authorize requests.'
+    required: true
 
-# regular metadata for the action runner
 runs:
   using: 'node12'
   pre: 'src/pre.js'
