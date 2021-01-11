@@ -1,4 +1,4 @@
-This workflow scans the action code for vulnerabilities when pushing hotfixes
+# This workflow scans the action code for vulnerabilities when pushing hotfixes
 name: analyze-code
 on:
   push:
