@@ -1,12 +1,15 @@
 const { warning } = require('@actions/core')
 // envVarMeta object is mapping an environment variable name to its validation function
 const envVarMeta = {
-  REMOTE_IP: envVar => {
-    // check if it is really an IP
-    const { isIP } = require('net')
-    return isIP(envVar)
+  SYNC_API_ROOT: envVar => {
+    // check if it is really a URL
+    const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*') // port and path
+    return !!pattern.test(envVar)
   },
-  AUTH_TOKEN: envVar => {
+  SYNC_API_AUTH_TOKEN: envVar => {
     const components = envVar.split('.')
     // check if JWT has 3 parts separated by '.'
     if (components.length !== 3) {
